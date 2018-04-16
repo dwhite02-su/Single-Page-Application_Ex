@@ -1,7 +1,7 @@
 (function(){
     let app = angular.module('istAuth', []);
 
-    app.service('$auth', function($rootScope, $window){
+    app.service('$auth', function($rootScope, $window, $http){
         //This service contains several methods related to authentication for the app 
         var service = this;
     
@@ -24,13 +24,14 @@
             service.setLogin(auth);
         }
     
-        service.login = function(username, password) {
+        service.login = function(username, password, callback) {
             if (service.checkAuth()) {
+                console.log('User is already logged in');
                 return;
             }
     
             $http({
-                url: $rootScope.url + '/api/login',
+                url: 'https://ist363api.azurewebsites.net/api/login',
                 method: 'POST',
                 params: {
                     'username': username,
@@ -38,9 +39,9 @@
                 }
             }).then(function(response){
                 service.setLogin(response.data.user);
-                $rootScope.closeModal('#modal-login');
-                $('#username').val("");
-                $('#password').val("");
+                if (typeof callback === "function") {
+                    callback();
+                };
             }, function(response){
                 console.log('login faied');
                 console.log(response);
