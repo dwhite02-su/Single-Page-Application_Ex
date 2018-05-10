@@ -7,3 +7,65 @@ img {
 	display: inline-block;
 	vertical-align: middle;
 }
+
+.cirlce{
+  height: 90px;
+  width: 90px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 50px;
+}
+
+.hero{
+	background-image: url("/images/hero_bg.jpeg") ;
+	width: 100%;
+	height: 1281px;
+	background-position: center top;
+	/* background-repeat: no-repeat;
+    background-size: contain; */
+	
+}
+
+.word {
+	
+	width: 100%;
+    max-width: 720px;
+	height: auto;
+	margin-top: 35%;
+}
+
+.pic-list img {
+	width: 100%;
+    height: auto;
+}
+
+.footer{
+color:white;
+}
+
+@media only screen and (max-width:1025px) {
+            .word {
+				margin-top: 55%;
+			}
+		}
+
+@media only screen and (max-width:975px) {
+            .word {
+				margin-top: 75%;
+			}
+		}
+
+@media only screen and (max-width:768px) {
+            .word {
+				margin-top: 95%;
+			}
+		}
+
+@media only screen and (max-width:375px) {
+            .word {
+				margin-top: 525px;
+			}
+		}		
+
+

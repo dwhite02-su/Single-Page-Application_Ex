@@ -43,7 +43,7 @@
                     callback();
                 };
             }, function(response){
-                console.log('login faied');
+                console.log('login failed');
                 console.log(response);
             });
         };
